@@ -1,0 +1,50 @@
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkButton {
+    text-transform: 'none';
+    text-decoration: 'none';
+    text-align: 'center';
+}
+
+.bigTextArea {
+    min-width: 200pt;
+    min-height: 100pt;
+}
+
+.teaser_image {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+.iphone_grid_image {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+.selected_model_image {
+    max-width: 100%;
+    max-height: 100%;
+    float: right;
+    height: auto;
+}
+
+.padding5 {
+    padding: 5px 5px 5px 5px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+footer {
+    margin-top:calc(5% + 60px);
+    bottom: 0;
+}
+
+
