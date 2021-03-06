@@ -83,7 +83,8 @@ const Result = () => {
 
     const getEstimation = async () => {
         
-        const response = await fetch("http://localhost:5000/get_sales_estimation", { 
+        //const response = await fetch("http://localhost:5000/get_sales_estimation", { 
+        const response = await fetch("/api", { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
