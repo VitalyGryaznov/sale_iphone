@@ -84,7 +84,7 @@ const Result = () => {
     const getEstimation = async () => {
         
         //const response = await fetch("http://localhost:5000/get_sales_estimation", { 
-        const response = await fetch("http://3.65.73.151/api/get_sales_estimation", { 
+        const response = await fetch("http://www.mein-iphone-verkaufen.de/api/get_sales_estimation", { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
