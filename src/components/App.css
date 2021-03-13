@@ -43,8 +43,6 @@ body {
 }
 
 footer {
-    margin-top:calc(5% + 60px);
+    margin-top:calc(5% - 10px);
     bottom: 0;
 }
-
-
