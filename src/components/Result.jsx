@@ -122,7 +122,7 @@ const Result = () => {
                 <Paper >
                     {loading ? (<div className="centered"><CircularProgress /></div>) : (
                         <div className={classes.resultText}>
-                            <Typography className="centered" variant='h6'>Es dauert ungefähr {days} Tage, um es bei eBay für {price}€ zu verkaufen</Typography>
+                            <Typography className="centered" variant='h6'>Es dauert ungefähr {days} Tage, um es bei eBay für {price}€ zu verkaufen*</Typography>
                         </div>
                     )}
                 </Paper>
@@ -154,6 +154,11 @@ const Result = () => {
                     </Grid>
                 </Grid>
             </div>
+            <footer>
+      <Typography className="centered" variant='caption' color='textSecondary'> *Verkauf und tatsächlich erzielter Verkaufspreis können nicht garantiert werden.
+      
+  </Typography>
+    </footer>
             <Footer></Footer>
         </div>
     )
