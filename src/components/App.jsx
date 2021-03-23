@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./Header";
 import { Grid } from '@material-ui/core';
 import Main from "./Main";
+import CookiesConsent from "./CookieConsent";
+import ReactGA from 'react-ga';
 
 function App() {
     const [testit, setTestrit] = useState("");
     function updateHeader(valuee) {
         setTestrit(valuee);
     }
+
+    useEffect(() => {
+        ReactGA.initialize('UA-192948383-1');
+        ReactGA.pageview('/');
+    }, []);
     
     
     return (
@@ -25,6 +32,7 @@ function App() {
                     <Grid item xs={1} sm={1} md={2}></Grid>
                 </Grid> 
             </Grid>
+            <CookiesConsent></CookiesConsent>
         </div>
     );
 }

@@ -6,6 +6,7 @@ import Step2 from './Step2'
 import Step3 from './Step3'
 import Result from './Result'
 import Impressum from './Impressum'
+import Dataschutz from './Dataschutz'
 
 const Main = () => (
   <main>
@@ -16,6 +17,7 @@ const Main = () => (
       <Route path='/iphone-verkaufen-estimate/step-3' component={Step3}/>
       <Route path='/iphone-verkaufen-estimate/result' component={Result}/>
       <Route path='/impressum' component={Impressum}/>
+      <Route path='/dataschutz' component={Dataschutz}/>
     </Switch>
   </main>
 )
