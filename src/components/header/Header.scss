@@ -1,0 +1,132 @@
+$main-text-color: white;
+$text-color-on-hover: rgb(216, 205, 205);
+$header-height: 60px;
+
+.header-wrapper {
+    position: relative;
+    height: $header-height;
+}
+
+.header {
+    height: $header-height;
+    background-color: black;
+    padding: 0 30px 0 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-attachment: fixed;
+    z-index: 100;
+}
+
+.header__logo {
+	height: 40px;
+    width: auto;
+}
+
+.header__item  {
+    display: flex;
+    align-items: center;
+    color: $main-text-color;
+    text-decoration: none;
+    flex-grow: 1;
+    justify-content: center;
+    
+}
+
+.header__item_justify-content_centered {
+    justify-content: center;
+}
+
+.header__item_flex-basis_15 {
+    flex-basis: 15%;
+}
+
+.header__item_flex-basis_70 {
+    flex-basis: 70%;
+}
+
+.header__item_left_padding_30 {
+    padding-left: 30px;
+}
+
+.header__menu-link {
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    color: $main-text-color;
+}
+
+.header__menu-link:hover {
+    color: $text-color-on-hover;
+}
+
+.header__hamburger-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+	background-repeat: no-repeat;
+	background-image: url('/img/hamburger-menu.svg');
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.header__hamburger-icon.header__hamburger-icon_close-icon-disply_true {
+    background-image: url('/img/close-hamburger-menu.svg');
+}
+
+.mobile-header {
+    display: none;
+}
+
+.desktop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.mobile-menu {
+	position: fixed;
+	width: 100%;
+    top: $header-height;
+    bottom: 0;
+	background-color: black;
+	z-index: 200;
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid white;
+}
+
+.mobile-menu.mobile-menu-active {
+    display: flex;
+}
+
+.mobile-menu__item {
+    margin-left: 30px;
+    border-bottom: 1px solid white;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $main-text-color;
+}
+
+
+@media only screen and (max-width: 1280px) { 
+	/* header */
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $header-height;
+        padding: 0 30px 0 30px;
+    }
+
+    .desktop-header {
+        display: none;
+    }
+}
