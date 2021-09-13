@@ -1,12 +1,10 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import HomePageContent from './HomePageContent'
-import Step1 from './EbayEstimatorStep1'
-import Step2 from './EbayEstimatorStep2'
-import Step3 from './Step3'
-import Result from './EstimationResult'
-import Impressum from './Impressum'
-import Dataschutz from './Dataschutz'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Step1 from "./EbayEstimatorStep1";
+import Step2 from "./EbayEstimatorStep2";
+import Result from "./EstimationResult";
+import Impressum from "./Impressum";
+import Dataschutz from "./Dataschutz";
 
 const Main = () => (
   <main>
@@ -27,10 +25,10 @@ const Main = () => (
         <Dataschutz />
       </Route>
       <Route path="/">
-        <HomePageContent />
+        <Step1 />
       </Route>
     </Switch>
   </main>
-)
+);
 
-export default Main
+export default Main;

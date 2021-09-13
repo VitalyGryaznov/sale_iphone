@@ -32,14 +32,14 @@ const EbayEstimatorStep2 = () => {
     ].forEach((field) =>
       dispatch(setValidationOption({ field: field, active: "true" }))
     );
-    console.log((typeof phoneState.phone.no_feedback_yet === "boolean"))
+    console.log(typeof phoneState.phone.no_feedback_yet === "boolean");
     return (
       phoneState.phone.condition &&
       phoneState.phone.return_policy &&
       phoneState.phone.shipping_cost &&
-      (typeof phoneState.phone.no_feedback_yet === "boolean") &&
-      (numberOfReviewsError === "") &&
-      (feedbackError === "")
+      typeof phoneState.phone.no_feedback_yet === "boolean" &&
+      numberOfReviewsError === "" &&
+      feedbackError === ""
     );
   };
 
@@ -115,7 +115,8 @@ const EbayEstimatorStep2 = () => {
                   placeholder=""
                   className="property-input"
                 ></input>
-                {phoneState.validation.no_feedback_yetValidationShow === "true" ? (
+                {phoneState.validation.no_feedback_yetValidationShow ===
+                "true" ? (
                   <div>{numberOfReviewsError}</div>
                 ) : (
                   <div></div>
@@ -127,7 +128,8 @@ const EbayEstimatorStep2 = () => {
                   placeholder=""
                   className="property-input"
                 ></input>
-                {phoneState.validation.no_feedback_yetValidationShow === "true" ? (
+                {phoneState.validation.no_feedback_yetValidationShow ===
+                "true" ? (
                   <div> {feedbackError}</div>
                 ) : (
                   <div></div>
