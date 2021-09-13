@@ -1,0 +1,105 @@
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.photo-container {
+    padding: 100px;
+    position: relative;
+}
+.estimator-header {
+    padding: 20px 0 20px 0;
+    .estimator-header__logo {
+        vertical-align: middle;
+    }
+}
+
+.properties {
+    padding: 20px 0 20px 0;
+    .properties-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+.ebay-estimator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 1120px;
+}
+
+.property-wrapper {
+    padding: 10px;
+    width: 45%;
+    .property-input {
+        max-width: 270px;
+        min-width: 200px;
+        height: 48px;
+    }
+    .property-select {
+        max-width: 270px;
+        min-width: 200px;
+        height: 48px;
+        vertical-align: middle;
+        background-color: rgb(221, 241, 224);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .property-select__value {
+            display: flex;
+            padding-left: 20px;
+            align-items: center;
+        }
+        .property-select__value::after {
+            background-color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 20px;
+            border: 1px solid green;
+            right: 20px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .property-select__value_not-selected::after {
+            content: "";
+        }
+        .property-select__value_selected::after {
+            content: "\2713";
+        }
+    }
+    .property-select:hover {
+        border: 1px solid green;
+    }
+    .property-select_seleced {
+        border: 1px solid green;
+    }
+}
+
+.submit-button-wrapper {
+    display: flex;
+    padding: 20px 0 20px 0;
+    justify-content: center;
+    .submit-button {
+        background-color: rgb(107, 199, 120);
+        border-radius: 40px;
+        height: 48px;
+        max-width: 500px;
+        min-width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        .submit-button__caption {
+            padding-left: 20px;
+        }
+    }
+    .submit-button:hover {
+        background-color: rgb(145, 194, 152);
+    }
+}

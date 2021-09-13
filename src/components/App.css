@@ -1,48 +1,12 @@
-.centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.linkButton {
-    text-transform: 'none';
-    text-decoration: 'none';
-    text-align: 'center';
-}
-
-.bigTextArea {
-    min-width: 200pt;
-    min-height: 100pt;
-}
-
-.teaser_image {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-}
-
-.iphone_grid_image {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-}
-
-.selected_model_image {
-    max-width: 100%;
-    max-height: 100%;
-    float: right;
-    height: auto;
-}
-
-.padding5 {
-    padding: 5px 5px 5px 5px;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 body {
-    overflow-x: hidden;
+	font-family: 'DM Sans', sans-serif;
 }
 
-footer {
-    margin-top:calc(5% - 10px);
-    bottom: 0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../learn_fe"
+		},
+		{
+			"path": "../../../../web/my-bem-project"
+		}
+	],
+	"settings": {}
+}
