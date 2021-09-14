@@ -2,24 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./EbayEstimator.scss";
 import PropertySelect from "./PropertySelect";
-import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../redux/storets";
 
 const PhoneProperties = (props) => {
-  console.log(props.options);
-
-  const phoneState = useSelector((state: RootState) => state);
-  const ValidationMessage = () => {
-    if (
-      phoneState.validation[props.field + "ValidationShow"] === "true" &&
-      (typeof phoneState.phone[props.field] === "undefined" ||
-        phoneState.phone[props.field] === "")
-    ) {
-      return <div>Please select value</div>;
-    } else {
-      return <div></div>;
-    }
-  };
 
   return (
     <div className="properties">
@@ -32,11 +16,13 @@ const PhoneProperties = (props) => {
                 title={obj.title}
                 field={props.field}
                 value={obj.value}
+                onClick={props.onClick}
+                currentlySelected={props.currentlySelected}
               ></PropertySelect>
             ))
           : ""}
       </div>
-      <ValidationMessage />
+      <div>{props.error}</div>
     </div>
   );
 };

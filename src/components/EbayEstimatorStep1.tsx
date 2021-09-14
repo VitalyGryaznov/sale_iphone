@@ -5,56 +5,64 @@ import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
 import "./ebay-estimator/EbayEstimator.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setOption } from "../redux/slices";
-import { setValidationOption } from "../redux/validationSlices";
 import { AppDispatch, RootState } from "../redux/storets";
 import phonesList from "./constants/phonesList";
 import { useHistory } from "react-router-dom";
+import useForm from './useForm';
+import validate from "./validation/step1validation";
 
 const EbayEstimatorStep1 = () => {
+  
   const history = useHistory();
   const dispatch = useDispatch<AppDispatch>();
   const phoneState = useSelector((state: RootState) => state);
+  const initialValues = {
+    model: phoneState.phone.model,
+    color: phoneState.phone.color,
+    memory: phoneState.phone.memory
+  };
+
+  const { handleSelect, handleSubmit, handleInput, values, setValues, errors } = useForm(
+    initialValues,
+    validate,
+    () => {
+      dispatch(setOption({ field: "model", value: values.model }));
+      dispatch(setOption({ field: "color", value: values.color }));
+      dispatch(setOption({ field: "memory", value: values.memory }));
+      history.push("/iphone-verkaufen-estimate/step-2")
+    }
+  );
+
   const modelsList = phonesList.map((phone) => ({
     title: phone.title,
     value: phone.value,
   }));
-  const memoryList = phoneState.phone.model
+  const memoryList = values.model
     ? phonesList.filter((phone) => {
-        return phone.value == phoneState.phone.model;
+        return phone.value == values.model;
       })[0].memory
     : null;
-  const colorList = phoneState.phone.model
+  const colorList = values.model
     ? phonesList.filter((phone) => {
-        return phone.value == phoneState.phone.model;
+        return phone.value == values.model;
       })[0].color
     : null;
 
-  const handleEmptyStates = () => {
-    [
-      "modelValidationShow",
-      "colorValidationShow",
-      "memoryValidationShow",
-    ].forEach((field) =>
-      dispatch(setValidationOption({ field: field, active: "true" }))
-    );
-    return (
-      phoneState.phone.model &&
-      phoneState.phone.color &&
-      phoneState.phone.memory
-    );
-  };
-
-  const submitForm = () => {
-    if (handleEmptyStates()) {
-      history.push("/iphone-verkaufen-estimate/step-2");
-    }
+  const handleModelSelect = e => {
+    setValues({
+      model: e.currentTarget.getAttribute('data-value'),
+      color: '',
+      memory: ''
+    });
   };
 
   return (
     <div className="main-container">
       <div className="ebay-estimator">
         <div>
-          <EbayEstimatorPhoto />
+          <EbayEstimatorPhoto
+          values={values}
+          />
         </div>
         <div>
           <h1 className="estimator-header">
@@ -69,18 +77,27 @@ const EbayEstimatorStep1 = () => {
             title="1. Select your model"
             options={modelsList}
             field="model"
+            onClick={handleModelSelect}
+            currentlySelected={values.model}
+            error={errors["model"]}
           />
           <PhoneProperties
             title="2. Select memory"
             options={memoryList}
             field="memory"
+            onClick={handleSelect}
+            currentlySelected={values.memory}
+            error={errors["memory"]}
           />
           <PhoneProperties
             title="3. Select color"
             options={colorList}
             field="color"
+            onClick={handleSelect}
+            currentlySelected={values.color}
+            error={errors["color"]}
           />
-          <SumbitButton caption="submit" onClick={submitForm}></SumbitButton>
+          <SumbitButton caption="submit" onClick={handleSubmit}></SumbitButton>
         </div>
       </div>
     </div>

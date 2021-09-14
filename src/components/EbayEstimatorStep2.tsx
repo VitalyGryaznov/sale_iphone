@@ -10,40 +10,39 @@ import condition from "./constants/condition";
 import returnPolicy from "./constants/returnPolicy";
 import shippingCost from "./constants/shippingCost";
 import { useHistory } from "react-router-dom";
-import { setValidationOption } from "../redux/validationSlices";
+import useForm from './useForm';
+import validate from "./validation/step2validation";
 
 const EbayEstimatorStep2 = () => {
   const dispatch = useDispatch<AppDispatch>();
   const phoneState = useSelector((state: RootState) => state);
   const history = useHistory();
-  const [numberOfReviews, setNumberOfReviews] = useState(
-    phoneState.phone.number_of_reviews
-  );
-  const [feedback, setFeedback] = useState(phoneState.phone.selers_feedback);
-  const [numberOfReviewsError, setNumberOfReviewsError] = useState("");
-  const [feedbackError, setFeedbackError] = useState("");
-
-  const handleEmptyStates = () => {
-    [
-      "conditionValidationShow",
-      "return_policyValidationShow",
-      "no_feedback_yetValidationShow",
-      "shipping_costValidationShow",
-    ].forEach((field) =>
-      dispatch(setValidationOption({ field: field, active: "true" }))
-    );
-    console.log(typeof phoneState.phone.no_feedback_yet === "boolean");
-    return (
-      phoneState.phone.condition &&
-      phoneState.phone.return_policy &&
-      phoneState.phone.shipping_cost &&
-      typeof phoneState.phone.no_feedback_yet === "boolean" &&
-      numberOfReviewsError === "" &&
-      feedbackError === ""
-    );
+  const initialValues = {
+    model: phoneState.phone.model,
+    color: phoneState.phone.color,
+    memory: phoneState.phone.memory,
+    condition: phoneState.phone.condition,
+    return_policy: phoneState.phone.return_policy,
+    shipping_cost: phoneState.phone.shipping_cost,
+    no_feedback_yet: phoneState.phone.no_feedback_yet.toString(),
+    selers_feedback: phoneState.phone.selers_feedback,
+    number_of_reviews: phoneState.phone.number_of_reviews,
   };
 
-  const submitForm = () => {
+  const { handleSelect, handleInput, handleSubmit, values, setValues, errors } = useForm(
+    initialValues,
+    validate,
+    () => {
+      //dispatch(setOption({ field: "model", value: values.model }));
+   
+      history.push("/iphone-verkaufen-estimate/result");
+    }
+  );
+
+ 
+
+  
+  /*const submitForm = () => {
     if (handleEmptyStates()) {
       dispatch(setOption({ field: "selers_feedback", value: feedback }));
       dispatch(
@@ -73,73 +72,82 @@ const EbayEstimatorStep2 = () => {
       setNumberOfReviewsError("");
       //dispatch(setOption({ field: "number_of_reviews", value: numberOfReviews}));
     }
-  };
+  };*/
 
   return (
     <div className="main-container">
       <div className="ebay-estimator">
         <div>
-          <EbayEstimatorPhoto />
+          <EbayEstimatorPhoto values={values} />
         </div>
         <div>
           <PhoneProperties
             title="4. Zustand"
             options={condition}
             field="condition"
+            onClick={handleSelect}
+            currentlySelected={values.condition}
+            error={errors["condition"]}
           />
           <PhoneProperties
             title="5. Rücknahmenoption"
             options={returnPolicy}
             field="return_policy"
+            onClick={handleSelect}
+            currentlySelected={values.return_policy}
+            error={errors["return_policy"]}
           />
           <PhoneProperties
             title="6. Versandoption"
             options={shippingCost}
             field="shipping_cost"
+            onClick={handleSelect}
+            currentlySelected={values.shipping_cost}
+            error={errors["shipping_cost"]}
           />
           <PhoneProperties
             title="7. Hast du bereits Bewertungen als eBay-Verkäufer?"
             options={[
-              { title: "Ja", value: false },
-              { title: "Nein", value: true },
+              { title: "Ja", value: "false" },
+              { title: "Nein", value: "true" },
             ]}
             field="no_feedback_yet"
+            onClick={handleSelect}
+            currentlySelected={values.no_feedback_yet}
+            error={errors["no_feedback_yet"]}
           />
-          {phoneState.phone.no_feedback_yet === false ? (
-            <div className="properties">
-              <div className="properties-list">
-                <input
-                  value={numberOfReviews}
-                  type="text"
-                  onChange={handleNumberOfReviewsState}
-                  placeholder=""
-                  className="property-input"
-                ></input>
-                {phoneState.validation.no_feedback_yetValidationShow ===
-                "true" ? (
-                  <div>{numberOfReviewsError}</div>
-                ) : (
-                  <div></div>
-                )}
-                <input
-                  value={feedback}
-                  type="text"
-                  onChange={handleFeedbackState}
-                  placeholder=""
-                  className="property-input"
-                ></input>
-                {phoneState.validation.no_feedback_yetValidationShow ===
-                "true" ? (
-                  <div> {feedbackError}</div>
-                ) : (
-                  <div></div>
-                )}
-              </div>
-            </div>
+          {values.no_feedback_yet === "false" ? (
+            <div>
+             <div className='form-inputs'>
+             <label className='form-label'>Number of reviews</label>
+             <input
+               name = "number_of_reviews"
+               value={values.number_of_reviews}
+               type="number"
+               onChange={handleInput}
+               placeholder=""
+               className="property-input"
+             />
+             {errors["number_of_reviews"]}
+           </div>
+           <div className='form-inputs'>
+             <label className='form-label'>Selers feedback</label>
+             <input
+               name = "selers_feedback"
+               value={values.selers_feedback}
+               type="number"
+               onChange={handleInput}
+               placeholder="fgdgd"
+               className="property-input"
+             />
+             {errors["selers_feedback"]}
+           </div>
+           </div>
+           
           ) : (
             <div></div>
           )}
-          <SumbitButton caption="submit" onClick={submitForm}></SumbitButton>
+          <SumbitButton caption="submit" onClick={handleSubmit}></SumbitButton>
         </div>
       </div>
     </div>

@@ -1,11 +1,9 @@
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { phoneSlice } from "./slices";
-import { validatonSlice } from "./validationSlices";
 
 export const store = configureStore({
   reducer: {
     phone: phoneSlice.reducer,
-    validation: validatonSlice.reducer,
   },
 });
 

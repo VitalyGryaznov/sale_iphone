@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/storets";
 import phonesList from "../constants/phonesList";
 
-const EbayEstimatorPhoto = () => {
+const EbayEstimatorPhoto = (properties) => {
   const phoneState = useSelector((state: RootState) => state);
-  const imageUrl = phoneState.phone.model
+  const imageUrl = properties.values.model
     ? phonesList.filter((phone) => {
-        return phone.value == phoneState.phone.model;
+        return phone.value == properties.values.model;
       })[0].imageUrl
     : "/assets/iPhone_11_Pro.jpg";
   const getOptionIfDefined = (fieldName) => {
