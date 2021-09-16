@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorPhoto";
 import PhoneProperties from "./ebay-estimator/PhoneProperties";
 import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
@@ -33,46 +33,15 @@ const EbayEstimatorStep2 = () => {
     initialValues,
     validate,
     () => {
-      //dispatch(setOption({ field: "model", value: values.model }));
-   
+      dispatch(setOption({ field: "condition", value: values.condition }));
+      dispatch(setOption({ field: "return_policy", value: values.return_policy }));
+      dispatch(setOption({ field: "shipping_cost", value: values.shipping_cost }));
+      dispatch(setOption({ field: "selers_feedback", value: values.selers_feedback }));
+      dispatch(setOption({ field: "number_of_reviews", value: values.number_of_reviews }));
+      dispatch(setOption({ field: "no_feedback_yet", value: (values.no_feedback_yet === "true") }));
       history.push("/iphone-verkaufen-estimate/result");
     }
   );
-
- 
-
-  
-  /*const submitForm = () => {
-    if (handleEmptyStates()) {
-      dispatch(setOption({ field: "selers_feedback", value: feedback }));
-      dispatch(
-        setOption({ field: "number_of_reviews", value: numberOfReviews })
-      );
-      history.push("/iphone-verkaufen-estimate/result");
-    }
-  };
-
-  const handleFeedbackState = (event) => {
-    setFeedback(event.target.value);
-    const reg = RegExp(/^\d*$/).test(event.target.value);
-    if (!reg) {
-      setFeedbackError("Ihre Prozentsatz darf nur die Zahlen 0-9 enthalten.");
-    } else {
-      setFeedbackError("");
-      //dispatch(setOption({ field: "selers_feedback", value: feedback}));
-    }
-  };
-
-  const handleNumberOfReviewsState = (event) => {
-    setNumberOfReviews(event.target.value);
-    const reg = RegExp(/^\d*$/).test(event.target.value);
-    if (!reg) {
-      setNumberOfReviewsError("Ihre Anzahl darf nur die Zahlen 0-9 enthalten.");
-    } else {
-      setNumberOfReviewsError("");
-      //dispatch(setOption({ field: "number_of_reviews", value: numberOfReviews}));
-    }
-  };*/
 
   return (
     <div className="main-container">

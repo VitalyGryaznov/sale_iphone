@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorPhoto";
 import PhoneProperties from "./ebay-estimator/PhoneProperties";
 import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
@@ -39,12 +38,12 @@ const EbayEstimatorStep1 = () => {
   }));
   const memoryList = values.model
     ? phonesList.filter((phone) => {
-        return phone.value == values.model;
+        return phone.value === values.model;
       })[0].memory
     : null;
   const colorList = values.model
     ? phonesList.filter((phone) => {
-        return phone.value == values.model;
+        return phone.value === values.model;
       })[0].color
     : null;
 
@@ -70,6 +69,7 @@ const EbayEstimatorStep1 = () => {
             <img
               className="estimator-header__logo"
               src="/assets/ebay.png"
+              alt="ebay logo"
             ></img>{" "}
             verkaufen könntest
           </h1>

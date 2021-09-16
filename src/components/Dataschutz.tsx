@@ -1,6 +1,4 @@
-import { Typography } from "@material-ui/core";
-import React, { useState } from "react";
-import Footer from "./Footer";
+import React from "react";
 import "./App.css";
 
 function Dataschutz() {
@@ -268,7 +266,6 @@ function Dataschutz() {
           href="https://www.facebook.com/help/contact/540977946302970"
           target="_blank"
           rel="noopener"
-          aria-invalid="true"
         >
           https://www.facebook.com/help/contact/540977946302970
         </a>

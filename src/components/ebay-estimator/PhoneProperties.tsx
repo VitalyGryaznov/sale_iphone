@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./EbayEstimator.scss";
 import PropertySelect from "./PropertySelect";
 

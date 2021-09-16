@@ -1,6 +1,4 @@
-import { Typography } from "@material-ui/core";
-import React, { useState } from "react";
-import Footer from "./Footer";
+import React from "react";
 import "./App.css";
 
 function HomePageContent() {

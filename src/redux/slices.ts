@@ -36,7 +36,7 @@ export const phoneSlice = createSlice({
   reducers: {
     setOption: (
       state,
-      action: PayloadAction<{ field: string; value: string }>
+      action: PayloadAction<{ field: string; value }>
     ) => {
       state[action.payload.field] = action.payload.value;
     },

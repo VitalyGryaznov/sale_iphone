@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Header.scss";
 
 const Header = () => {
@@ -25,37 +24,35 @@ const Header = () => {
             className="header__item header__item_flex-basis_70 header__item_left_padding_30"
             href="/"
           >
-            <img className="header__logo" src="/assets/logo-white.svg"></img>
+            <img className="header__logo" src="/assets/logo-white.svg" alt="header logo"></img>
             <div>Mein Iphone Verkaufen</div>
           </a>
-          <a className="header__item header__item_flex-basis_15"></a>
         </div>
         <div className="desktop-header">
           <a
             className="header__item header__item_flex-basis_15 header__item_left_padding_30"
             href="/"
           >
-            <img className="header__logo" src="/assets/logo-white.svg"></img>
+            <img className="header__logo" src="/assets/logo-white.svg" alt="header logo"></img>
             <div>Mein Iphone Verkaufen</div>
           </a>
           <div className="header__item header__item_justify-content_centered header__item_flex-basis_70">
             <a className="header__menu-link" href="/iphone-verkaufen-estimate">
               Ebay price calculator
             </a>
-            <a className="header__menu-link" href="">
+            {/*<a className="header__menu-link" href="">
               Blog
-            </a>
+  </a>*/}
           </div>
-          <a className="header__item header__item_flex-basis_15"></a>
         </div>
       </div>
       <div className="mobile-menu">
         <a className="mobile-menu__item" href="/iphone-verkaufen-estimate">
           Ebay price calculator
         </a>
-        <a className="mobile-menu__item" href="">
+        {/*<a className="mobile-menu__item" href="">
           Blog
-        </a>
+</a>*/}
       </div>
     </div>
   );
