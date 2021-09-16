@@ -25,8 +25,8 @@ const EstimationResult = () => {
   const [loading, setLoading] = useState(true);
 
   const getResult = async () => {
-    const response = await fetch("http://localhost:8000/get_sales_estimation", {
-    //const response = await fetch("https://www.mein-iphone-verkaufen.de/api/get_sales_estimation", {
+    //const response = await fetch("http://localhost:8000/get_sales_estimation", {
+    const response = await fetch("https://www.mein-iphone-verkaufen.de/api/get_sales_estimation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
