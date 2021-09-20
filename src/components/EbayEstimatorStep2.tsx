@@ -146,7 +146,7 @@ const EbayEstimatorStep2 = () => {
               <div className="form_input">
                 <TextField
                   fullWidth
-                  label="Prozentsatz der positiven Bewertungen"
+                  label="Positiven Bewertungen %"
                   name="selers_feedback"
                   value={values.selers_feedback}
                   type="number"
