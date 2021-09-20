@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorInfo";
 import PhoneProperties from "./ebay-estimator/PhoneProperties";
 import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 import useForm from "./useForm";
 import validateFirstPageValues from "./validation/step1validation";
 import validate from "./validation/step2validation";
-import { TextField, InputAdornment } from '@material-ui/core';
+import { TextField, InputAdornment } from "@material-ui/core";
 
 const EbayEstimatorStep2 = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -26,9 +26,10 @@ const EbayEstimatorStep2 = () => {
     condition: phoneState.phone.condition,
     return_policy: phoneState.phone.return_policy,
     shipping_cost: phoneState.phone.shipping_cost,
-    no_feedback_yet: (phoneState.phone.no_feedback_yet !== null)
-      ? phoneState.phone.no_feedback_yet.toString()
-      : null,
+    no_feedback_yet:
+      phoneState.phone.no_feedback_yet !== null
+        ? phoneState.phone.no_feedback_yet.toString()
+        : null,
     selers_feedback: phoneState.phone.selers_feedback,
     number_of_reviews: phoneState.phone.number_of_reviews,
   };
@@ -63,11 +64,11 @@ const EbayEstimatorStep2 = () => {
       history.push("/iphone-verkaufen-estimate/result");
     });
 
-    const firstPagelValues = {
-      model: phoneState.phone.model,
-      color: phoneState.phone.color,
-      memory: phoneState.phone.memory
-    };
+  const firstPagelValues = {
+    model: phoneState.phone.model,
+    color: phoneState.phone.color,
+    memory: phoneState.phone.memory,
+  };
 
   useEffect(() => {
     const errors = validateFirstPageValues(firstPagelValues);
@@ -75,7 +76,7 @@ const EbayEstimatorStep2 = () => {
       console.log(errors);
       history.push("/iphone-verkaufen-estimate/step-1");
     } else {
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     }
   }, []);
 
@@ -123,44 +124,57 @@ const EbayEstimatorStep2 = () => {
           />
           {values.no_feedback_yet === "false" ? (
             <div className="form_inputs">
-            <div className="form_input">
-              <TextField fullWidth label="Anzahl der Bewertungen"
-                                name="number_of_reviews"
-                                value={values.number_of_reviews}
-                                type="number"
-                                onChange={handleInput}
-                                autoComplete="off"
-                                inputProps={{ maxLength: 7 }}
-                                required
-                                error={errors["number_of_reviews"]}
-                                helperText={(errors["number_of_reviews"] !== "") ? errors["number_of_reviews"] : "Bitte geben Sie Ihre Anzahl ein."}
-                            />
+              <div className="form_input">
+                <TextField
+                  fullWidth
+                  label="Anzahl der Bewertungen"
+                  name="number_of_reviews"
+                  value={values.number_of_reviews}
+                  type="number"
+                  onChange={handleInput}
+                  autoComplete="off"
+                  inputProps={{ maxLength: 7 }}
+                  required
+                  error={errors["number_of_reviews"]}
+                  helperText={
+                    errors["number_of_reviews"] !== ""
+                      ? errors["number_of_reviews"]
+                      : "Bitte geben Sie Ihre Anzahl ein."
+                  }
+                />
               </div>
               <div className="form_input">
-                
-              <TextField fullWidth label="Prozentsatz der positiven Bewertungen"
-                                name="selers_feedback"
-                                value={values.selers_feedback}
-                                type="number"
-                                InputProps={{
-                                    endAdornment: <InputAdornment position="end">%</InputAdornment>,
-                                }}
-                                onChange={handleInput}
-                                autoComplete="off"
-                                inputProps={{ maxLength: 3 }}
-                                required
-                                error={errors["selers_feedback"]}
-                                helperText={(errors["selers_feedback"] !== "") ? errors["selers_feedback"] : "Bitte geben Sie die Zahl von 1 bis 100 ein."}
-                            />
-              
-                            </div>
-             
-             </div>
-            
+                <TextField
+                  fullWidth
+                  label="Prozentsatz der positiven Bewertungen"
+                  name="selers_feedback"
+                  value={values.selers_feedback}
+                  type="number"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">%</InputAdornment>
+                    ),
+                  }}
+                  onChange={handleInput}
+                  autoComplete="off"
+                  inputProps={{ maxLength: 3 }}
+                  required
+                  error={errors["selers_feedback"]}
+                  helperText={
+                    errors["selers_feedback"] !== ""
+                      ? errors["selers_feedback"]
+                      : "Bitte geben Sie die Zahl von 1 bis 100 ein."
+                  }
+                />
+              </div>
+            </div>
           ) : (
             <div></div>
           )}
-          <SumbitButton caption="VERKAUFPROGNOSE ERHALTEN" onClick={handleSubmit}></SumbitButton>
+          <SumbitButton
+            caption="VERKAUFPROGNOSE ERHALTEN"
+            onClick={handleSubmit}
+          ></SumbitButton>
         </div>
       </div>
     </div>

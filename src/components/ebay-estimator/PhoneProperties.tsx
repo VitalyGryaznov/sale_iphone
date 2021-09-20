@@ -3,11 +3,12 @@ import "./PhoneProperties.scss";
 import PropertySelect from "./PropertySelect";
 
 const PhoneProperties = (props) => {
-
   return (
     <div className="properties_container">
       <h2>{props.title}</h2>
-      { (props.error) ? <div className="properties_error">{props.error}</div> : null}
+      {props.error ? (
+        <div className="properties_error">{props.error}</div>
+      ) : null}
       <div className="properties_list">
         {props.options
           ? props.options.map((obj) => (

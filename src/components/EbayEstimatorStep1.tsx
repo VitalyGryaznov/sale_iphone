@@ -8,30 +8,26 @@ import { setOption } from "../redux/slices";
 import { AppDispatch, RootState } from "../redux/storets";
 import phonesList from "./constants/phonesList";
 import { useHistory } from "react-router-dom";
-import useForm from './useForm';
+import useForm from "./useForm";
 import validate from "./validation/step1validation";
 
 const EbayEstimatorStep1 = () => {
-  
   const history = useHistory();
   const dispatch = useDispatch<AppDispatch>();
   const phoneState = useSelector((state: RootState) => state);
   const initialValues = {
     model: phoneState.phone.model,
     color: phoneState.phone.color,
-    memory: phoneState.phone.memory
+    memory: phoneState.phone.memory,
   };
 
-  const { handleSelect, handleSubmit, handleInput, values, setValues, errors } = useForm(
-    initialValues,
-    validate,
-    () => {
+  const { handleSelect, handleSubmit, handleInput, values, setValues, errors } =
+    useForm(initialValues, validate, () => {
       dispatch(setOption({ field: "model", value: values.model }));
       dispatch(setOption({ field: "color", value: values.color }));
       dispatch(setOption({ field: "memory", value: values.memory }));
-      history.push("/iphone-verkaufen-estimate/step-2")
-    }
-  );
+      history.push("/iphone-verkaufen-estimate/step-2");
+    });
 
   const modelsList = phonesList.map((phone) => ({
     title: phone.title,
@@ -48,25 +44,23 @@ const EbayEstimatorStep1 = () => {
       })[0].color
     : null;
 
-  const handleModelSelect = e => {
+  const handleModelSelect = (e) => {
     setValues({
-      model: e.currentTarget.getAttribute('data-value'),
-      color: '',
-      memory: ''
+      model: e.currentTarget.getAttribute("data-value"),
+      color: "",
+      memory: "",
     });
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="main-container">
       <div className="ebay-estimator">
         <div>
-          <EbayEstimatorPhoto
-          values={values}
-          />
+          <EbayEstimatorPhoto values={values} />
         </div>
         <div>
           <h1 className="estimator-header">

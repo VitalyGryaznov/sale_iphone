@@ -1,14 +1,14 @@
 $highlite-color: rgb(85, 206, 101);
 .results {
-    &_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &_title {
-        color: $highlite-color;
-    }
-    &_highlited_part {
-        color: $highlite-color;
-    }
+  &_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_title {
+    color: $highlite-color;
+  }
+  &_highlited_part {
+    color: $highlite-color;
+  }
 }
