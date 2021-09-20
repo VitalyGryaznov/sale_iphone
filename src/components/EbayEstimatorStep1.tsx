@@ -1,4 +1,5 @@
-import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorPhoto";
+import React, { useEffect } from "react";
+import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorInfo";
 import PhoneProperties from "./ebay-estimator/PhoneProperties";
 import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
 import "./ebay-estimator/EbayEstimator.scss";
@@ -55,6 +56,10 @@ const EbayEstimatorStep1 = () => {
     });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
+
   return (
     <div className="main-container">
       <div className="ebay-estimator">
@@ -74,7 +79,7 @@ const EbayEstimatorStep1 = () => {
             verkaufen könntest
           </h1>
           <PhoneProperties
-            title="1. Select your model"
+            title="1. Modell deines iPhones"
             options={modelsList}
             field="model"
             onClick={handleModelSelect}
@@ -82,7 +87,7 @@ const EbayEstimatorStep1 = () => {
             error={errors["model"]}
           />
           <PhoneProperties
-            title="2. Select memory"
+            title="2. Speicherkapazität auswählen"
             options={memoryList}
             field="memory"
             onClick={handleSelect}
@@ -90,14 +95,14 @@ const EbayEstimatorStep1 = () => {
             error={errors["memory"]}
           />
           <PhoneProperties
-            title="3. Select color"
+            title="3. Farbe auswählen"
             options={colorList}
             field="color"
             onClick={handleSelect}
             currentlySelected={values.color}
             error={errors["color"]}
           />
-          <SumbitButton caption="submit" onClick={handleSubmit}></SumbitButton>
+          <SumbitButton caption="WEITER" onClick={handleSubmit}></SumbitButton>
         </div>
       </div>
     </div>

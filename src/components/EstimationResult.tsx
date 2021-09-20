@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorPhoto";
+import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorInfo";
 import EstimationResultDetails from "./ebay-estimator/EstimationResultDetails";
 import "./ebay-estimator/EbayEstimator.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/storets";
+import validateFirstStepValues from "./validation/step1validation";
+import validateSecondStepValues from "./validation/step2validation";
+import { useHistory } from "react-router-dom";
+import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
 
 
 const EstimationResult = () => {
+  const history = useHistory();
   const phoneState = useSelector((state: RootState) => state);
   const values = {
     model: phoneState.phone.model,
@@ -15,7 +20,9 @@ const EstimationResult = () => {
     condition: phoneState.phone.condition,
     return_policy: phoneState.phone.return_policy,
     shipping_cost: phoneState.phone.shipping_cost,
-    no_feedback_yet: phoneState.phone.no_feedback_yet.toString(),
+    no_feedback_yet: (phoneState.phone.no_feedback_yet !== null)
+      ? phoneState.phone.no_feedback_yet.toString()
+      : null,
     selers_feedback: phoneState.phone.selers_feedback,
     number_of_reviews: phoneState.phone.number_of_reviews,
   };
@@ -40,18 +47,32 @@ const EstimationResult = () => {
   };
 
   useEffect(() => {
+    const firstStepErrors = validateFirstStepValues(values);
+    const secondStepErrors = validateSecondStepValues(values);
+    if ((Object.keys(firstStepErrors).length + Object.keys(secondStepErrors).length) > 0) {
+      console.log("result page error")
+      console.log(secondStepErrors)
+      history.push("/iphone-verkaufen-estimate/step-1");
+    } else {
+      window.scrollTo(0, 0)
+    }
     getResult();
   }, []);
 
   return (
     <div className="main-container">
       <div className="ebay-estimator">
+        
         <div>
           <EbayEstimatorPhoto values={values}/>
         </div>
-        <div>
+        <div className="estimation_result">
           <EstimationResultDetails days={days} price={price} isLoading={loading}/>
+          <SumbitButton caption="STARTSEITE" onClick={() => { history.push("/iphone-verkaufen-estimate/step-1") }}></SumbitButton>
+          <div>*Verkauf und tatsächlich erzielter Verkaufspreis können nicht garantiert werden.</div>
         </div>
+        
+        
       </div>
     </div>
   );

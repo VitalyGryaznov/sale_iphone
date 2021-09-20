@@ -4,23 +4,11 @@
   justify-content: center;
 }
 
-.photo-container {
-  padding: 100px;
-  position: relative;
-}
+
 .estimator-header {
   padding: 20px 0 20px 0;
   .estimator-header__logo {
     vertical-align: middle;
-  }
-}
-
-.properties {
-  padding: 20px 0 20px 0;
-  .properties-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 
@@ -33,15 +21,15 @@
 
 .property-wrapper {
   padding: 10px;
-  width: 45%;
+  min-width: 45%;
   .property-input {
     max-width: 270px;
     min-width: 200px;
     height: 48px;
   }
   .property-select {
-    max-width: 270px;
-    min-width: 200px;
+    max-width: 300px;
+    min-width: 270px;
     height: 48px;
     vertical-align: middle;
     background-color: rgb(221, 241, 224);
@@ -75,6 +63,7 @@
   }
   .property-select:hover {
     border: 1px solid green;
+    cursor: pointer;
   }
   .property-select_seleced {
     border: 1px solid green;
@@ -85,6 +74,7 @@
   display: flex;
   padding: 20px 0 20px 0;
   justify-content: center;
+  width: 100%;
   .submit-button {
     background-color: rgb(107, 199, 120);
     border-radius: 40px;
@@ -101,5 +91,49 @@
   }
   .submit-button:hover {
     background-color: rgb(145, 194, 152);
+    cursor: pointer;
   }
 }
+
+.form_inputs {
+  padding: 10px 50px 10px 50px;
+}
+
+.form_input {
+  padding-bottom: 20px;
+}
+
+.estimation_result {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .ebay-estimator {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ebay-estimator {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .estimator-header {
+    padding: 20px 15px 20px 15px;
+    font-size: 20px;
+    .estimator-header__logo {
+      vertical-align: middle;
+    }
+  }
+
+  .estimation_result {
+   padding: 10px 15px 10px 15px
+  }
+}
+

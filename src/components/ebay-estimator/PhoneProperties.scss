@@ -1,0 +1,29 @@
+.properties {
+  &_container {
+    padding: 20px 0 20px 0;
+  }
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &_error {
+    color: red;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .properties {
+    &_container {
+      padding: 10px 20px 10px 20px;
+    }
+    &_list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &_error {
+      color: red;
+    }
+  }
+}

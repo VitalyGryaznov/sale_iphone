@@ -9,7 +9,6 @@ export const store = configureStore({
 
 store.subscribe(() => {
   const storage = store.getState();
-  console.log(JSON.stringify(storage.phone));
   localStorage.setItem("phone", JSON.stringify(storage.phone));
 });
 

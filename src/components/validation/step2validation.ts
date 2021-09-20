@@ -22,17 +22,21 @@ export default function validateInfo(values) {
     errors.no_feedback_yet = "Bitte auswählen";
   }
 
+  if (!values.shipping_cost) {
+    errors.shipping_cost = "Bitte auswählen";
+  }
+
   if (values.no_feedback_yet === "false") {
     if (values.selers_feedback === "") {
-      errors.selers_feedback = "Bitte geben Sie Ihre Prozentsatz ein";
+      errors.selers_feedback = "Bitte geben Sie die Zahl von 1 bis 100 ein";
     } else if (values.selers_feedback < 0 || values.selers_feedback > 100) {
-      errors.selers_feedback = "Bitte geben Sie Ihre Prozentsatz ein";
+      errors.selers_feedback = "Bitte geben Sie die Zahl von 1 bis 100 ein.";
     }
 
     if (values.number_of_reviews === "") {
       errors.number_of_reviews = "Bitte geben Sie Ihre Anzahl ein";
     } else if (values.number_of_reviews < 0) {
-      errors.number_of_reviews = "Bitte geben Sie Ihre Prozentsatz ein.";
+      errors.number_of_reviews = "Bitte geben Sie Ihre Anzahl ein";
     }
   }
 

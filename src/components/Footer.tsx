@@ -1,16 +1,16 @@
 import React from "react";
-import { Typography, Link } from "@material-ui/core";
+import "./Footer.scss";
 
 function FooterComponent() {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <Typography className="centered" variant="caption" color="textSecondary">
+      <div className="footer_container">
         Mein iPhone verkaufen ⓒ {currentYear}
-        <Link variant="caption" color="textSecondary" href="/impressum">
+        <a className="footer_link" href="/impressum">
           ● Impressum
-        </Link>
-      </Typography>
+        </a>
+      </div>
     </footer>
   );
 }

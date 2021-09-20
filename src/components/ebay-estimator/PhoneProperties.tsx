@@ -1,13 +1,14 @@
 import React from "react";
-import "./EbayEstimator.scss";
+import "./PhoneProperties.scss";
 import PropertySelect from "./PropertySelect";
 
 const PhoneProperties = (props) => {
 
   return (
-    <div className="properties">
+    <div className="properties_container">
       <h2>{props.title}</h2>
-      <div className="properties-list">
+      { (props.error) ? <div className="properties_error">{props.error}</div> : null}
+      <div className="properties_list">
         {props.options
           ? props.options.map((obj) => (
               <PropertySelect
@@ -21,7 +22,6 @@ const PhoneProperties = (props) => {
             ))
           : ""}
       </div>
-      <div>{props.error}</div>
     </div>
   );
 };
