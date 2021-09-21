@@ -43,7 +43,7 @@ const EbayEstimatorInfo = (properties) => {
           <div><b className="info_title">Speicherkapazität:</b>{getModelOptionIfDefined("memory")}</div>
         </div>
         <div className="info_poperty">
-          <div><b className="info_title">Modell:</b>{getModelOptionIfDefined("color")}</div>
+          <div><b className="info_title">Farbe:</b>{getModelOptionIfDefined("color")}</div>
         </div>
         <div className="info_poperty">
           <div><b className="info_title">Zustand:</b>{getOptionIfDefined("condition", condition)}</div>
