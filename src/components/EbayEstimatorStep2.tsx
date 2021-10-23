@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import EbayEstimatorPhoto from "./ebay-estimator/EbayEstimatorInfo";
+import EbayEstimatorInfo from "./ebay-estimator/EbayEstimatorInfo";
 import PhoneProperties from "./ebay-estimator/PhoneProperties";
 import SumbitButton from "./ebay-estimator/SubmitEstimatorScreenButton";
 import "./ebay-estimator/EbayEstimator.scss";
@@ -84,7 +84,7 @@ const EbayEstimatorStep2 = () => {
     <div className="main-container">
       <div className="ebay-estimator">
         <div>
-          <EbayEstimatorPhoto values={values} />
+          <EbayEstimatorInfo values={values} />
         </div>
         <div>
           <PhoneProperties

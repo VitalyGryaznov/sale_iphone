@@ -50,13 +50,7 @@ const useForm = (initialValues, validate, callbackOnSuccesfullSubit) => {
   }, [values]);
 
   useEffect(() => {
-    const firstError = document.querySelectorAll(".properties_error");
-    let headerHeigth = 60;
-    firstError[0]?.scrollIntoView(true);
-    var scrolledY = window.scrollY;
-    if (scrolledY) {
-      window.scroll(0, scrolledY - headerHeigth);
-    }
+    scrollToTheFirstError();
   }, [isSubmitting]);
 
   return { handleSelect, handleInput, handleSubmit, values, setValues, errors };

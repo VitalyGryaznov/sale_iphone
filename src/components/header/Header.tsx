@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Header.scss";
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
             <div>Mein Iphone Verkaufen</div>
           </a>
         </div>
-        <div className="desktop-header">
+        <div className="desktop-header" >
           <a
             className="header__item header__item_flex-basis_15 header__item_left_padding_30"
             href="/"

@@ -10,8 +10,8 @@ function App() {
     <div>
       <Header />
       <Main />
-      <CookiesConsent></CookiesConsent>
-      <Footer></Footer>
+      <CookiesConsent />
+      <Footer />
     </div>
   );
 }

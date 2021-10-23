@@ -3,6 +3,7 @@ import "./PhoneProperties.scss";
 import PropertySelect from "./PropertySelect";
 
 const PhoneProperties = (props) => {
+  
   return (
     <div className="properties_container">
       <h2>{props.title}</h2>
