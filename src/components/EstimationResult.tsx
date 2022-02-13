@@ -36,7 +36,7 @@ const EstimationResult = () => {
       "https://www.mein-iphone-verkaufen.de/api/get_sales_estimation",
       {
         method: "POST",
-        headers: {
+    headers: { 
           "Content-Type": "application/json",
         },
         body: JSON.stringify(phoneState.phone),
