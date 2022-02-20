@@ -5,17 +5,18 @@ import Step2 from "./EbayEstimatorStep2";
 import Result from "./EstimationResult";
 import Impressum from "./Impressum";
 import Dataschutz from "./Dataschutz";
+import WaysToSellIphone from "./articles/WaysToSellIphone";
 
 const Main = () => (
   <main>
     <Switch>
-      <Route path="/iphone-verkaufen-estimate/result">
+      <Route path="/iphone-ankauf-wert-ebay/result">
         <Result />
       </Route>
-      <Route path="/iphone-verkaufen-estimate/step-2">
+      <Route path="/iphone-ankauf-wert-ebay/step-2">
         <Step2 />
       </Route>
-      <Route path="/iphone-verkaufen-estimate">
+      <Route path="/iphone-ankauf-wert-ebay">
         <Step1 />
       </Route>
       <Route path="/impressum">
@@ -25,7 +26,7 @@ const Main = () => (
         <Dataschutz />
       </Route>
       <Route path="/">
-        <Step1 />
+        <WaysToSellIphone />
       </Route>
     </Switch>
   </main>

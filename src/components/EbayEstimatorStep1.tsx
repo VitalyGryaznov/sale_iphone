@@ -10,6 +10,7 @@ import phonesList from "./constants/phonesList";
 import { useHistory } from "react-router-dom";
 import useForm from "./useForm";
 import validate from "./validation/step1validation";
+import { Helmet } from "react-helmet";
 
 const EbayEstimatorStep1 = () => {
   const history = useHistory();
@@ -58,6 +59,11 @@ const EbayEstimatorStep1 = () => {
 
   return (
     <div className="main-container">
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>My Ipho</title>
+                <meta  />
+      </Helmet>
       <div className="ebay-estimator">
         <div>
           <EbayEstimatorInfo values={values} />

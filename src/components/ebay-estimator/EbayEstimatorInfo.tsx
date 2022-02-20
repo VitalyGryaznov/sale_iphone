@@ -4,6 +4,7 @@ import phonesList from "../constants/phonesList";
 import returnPolicy from "../constants/returnPolicy";
 import shippingCost from "../constants/shippingCost";
 import condition from "../constants/condition";
+import { Helmet } from "react-helmet";
 
 const EbayEstimatorInfo = (properties) => {
   const imageUrl = properties.values.model
@@ -34,34 +35,65 @@ const EbayEstimatorInfo = (properties) => {
 
   return (
     <div className="info_container">
+      <Helmet>
+        <title>iPhone Ankauf Wert auf Ebay</title>
+        <meta
+          name="description"
+          content="Um herauszufinden, welcher Preis für Ihr Gerät bei eBay angemessen ist, können Sie unseren Ankauf Wert auf eBay Rechner verwenden"
+        />
+      </Helmet>
       <img className="info_image" src={imageUrl} alt="iphone"></img>
       <div>
         <div className="info_poperty">
-          <div><b className="info_title">Modell:</b>{getModelIfDefined}</div>
+          <div>
+            <b className="info_title">Modell:</b>
+            {getModelIfDefined}
+          </div>
         </div>
         <div className="info_poperty">
-          <div><b className="info_title">Speicherkapazität:</b>{getModelOptionIfDefined("memory")}</div>
+          <div>
+            <b className="info_title">Speicherkapazität:</b>
+            {getModelOptionIfDefined("memory")}
+          </div>
         </div>
         <div className="info_poperty">
-          <div><b className="info_title">Farbe:</b>{getModelOptionIfDefined("color")}</div>
+          <div>
+            <b className="info_title">Farbe:</b>
+            {getModelOptionIfDefined("color")}
+          </div>
         </div>
         <div className="info_poperty">
-          <div><b className="info_title">Zustand:</b>{getOptionIfDefined("condition", condition)}</div>
+          <div>
+            <b className="info_title">Zustand:</b>
+            {getOptionIfDefined("condition", condition)}
+          </div>
         </div>
         <div className="info_poperty">
-          <div><b className="info_title">Rücknahmen:</b>{getOptionIfDefined("return_policy", returnPolicy)}</div>
+          <div>
+            <b className="info_title">Rücknahmen:</b>
+            {getOptionIfDefined("return_policy", returnPolicy)}
+          </div>
         </div>
         <div className="info_poperty">
-          <div><b className="info_title">Versand:</b>{getOptionIfDefined("shipping_cost", shippingCost)}</div>
+          <div>
+            <b className="info_title">Versand:</b>
+            {getOptionIfDefined("shipping_cost", shippingCost)}
+          </div>
         </div>
 
         {properties.values.no_feedback_yet === "false" ? (
           <div>
             <div className="info_poperty">
-              <div><b className="info_title">Bewertungen:</b>{properties.values.number_of_reviews}</div>
+              <div>
+                <b className="info_title">Bewertungen:</b>
+                {properties.values.number_of_reviews}
+              </div>
             </div>
             <div className="info_poperty">
-              <div><b className="info_title">Positive Bewertungen:</b>{properties.values.selers_feedback}%</div>
+              <div>
+                <b className="info_title">Positive Bewertungen:</b>
+                {properties.values.selers_feedback}%
+              </div>
             </div>
           </div>
         ) : (

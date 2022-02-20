@@ -37,8 +37,8 @@ const Header = () => {
             <div>Mein Iphone Verkaufen</div>
           </a>
           <div className="header__item header__item_justify-content_centered header__item_flex-basis_70">
-            <a className="header__menu-link" href="/iphone-verkaufen-estimate">
-              Ebay price calculator
+            <a className="header__menu-link" href="/iphone-ankauf-wert-ebay">
+            Iphone Ankauf Wert auf Ebay
             </a>
             {/*<a className="header__menu-link" href="">
               Blog
@@ -47,8 +47,8 @@ const Header = () => {
         </div>
       </div>
       <div className="mobile-menu">
-        <a className="mobile-menu__item" href="/iphone-verkaufen-estimate">
-          Ebay price calculator
+        <a className="mobile-menu__item" href="/iphone-ankauf-wert-ebay">
+          Iphone Ankauf Wert auf Ebay
         </a>
         {/*<a className="mobile-menu__item" href="">
           Blog

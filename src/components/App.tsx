@@ -15,10 +15,10 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <Main />
-      <CookiesConsent />
-      <Footer />
+        <Header />
+        <Main />
+        <CookiesConsent />
+        <Footer />
     </div>
   );
 }
