@@ -61,7 +61,7 @@ const EbayEstimatorStep2 = () => {
           value: values.no_feedback_yet === "true",
         })
       );
-      history.push("/iphone-verkaufen-estimate/result");
+      history.push("/iphone-ankauf-wert-ebay/result");
     });
 
   const firstPagelValues = {
@@ -74,7 +74,7 @@ const EbayEstimatorStep2 = () => {
     const errors = validateFirstPageValues(firstPagelValues);
     if (Object.keys(errors).length > 0) {
       console.log(errors);
-      history.push("/iphone-verkaufen-estimate/step-1");
+      history.push("/iphone-ankauf-wert-ebay");
     } else {
       window.scrollTo(0, 0);
     }

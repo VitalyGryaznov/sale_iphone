@@ -27,7 +27,7 @@ const EbayEstimatorStep1 = () => {
       dispatch(setOption({ field: "model", value: values.model }));
       dispatch(setOption({ field: "color", value: values.color }));
       dispatch(setOption({ field: "memory", value: values.memory }));
-      history.push("/iphone-verkaufen-estimate/step-2");
+      history.push("/iphone-ankauf-wert-ebay/step-2");
     });
 
   const modelsList = phonesList.map((phone) => ({

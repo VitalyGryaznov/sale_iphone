@@ -58,7 +58,7 @@ const EstimationResult = () => {
     ) {
       console.log("result page error");
       console.log(secondStepErrors);
-      history.push("/iphone-verkaufen-estimate/step-1");
+      history.push("/iphone-ankauf-wert-ebay");
     } else {
       window.scrollTo(0, 0);
     }
@@ -80,7 +80,7 @@ const EstimationResult = () => {
           <SumbitButton
             caption="STARTSEITE"
             onClick={() => {
-              history.push("/iphone-verkaufen-estimate/step-1");
+              history.push("/iphone-ankauf-wert-ebay");
             }}
           ></SumbitButton>
           <div>
