@@ -12,15 +12,20 @@ const EstimationResultDetails = (props) => {
           </div>
         </div>
       ) : (
+        
         <div>
           <h1 className="results_title">Verkaufsprognose:</h1>
+          { props.noData ? (
+            <h1>
+              Wir haben leider keine Daten für dieses iPhone
+              </h1>
+          ): (
           <h1>
-            Es dauert ungefähr{" "}
-            <span className="results_highlited_part">{props.days} Tage</span>,
-            um es bei eBay für{" "}
-            <span className="results_highlited_part">{props.price}€</span> zu
-            verkaufen*
+          Die Preistendenz ist{" "}
+            <span className="results_highlited_part">{props.price}</span> 
           </h1>
+          )
+          }
         </div>
       )}
     </div>

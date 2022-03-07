@@ -1,14 +1,10 @@
 export default [
   {
-    title: "Sehr Gut",
-    value: "1",
+    title: "Gebraucht",
+    value: "3000",
   },
   {
-    title: "Gut",
-    value: "0",
-  },
-  {
-    title: "Schlecht",
-    value: "-1",
-  },
+    title: "Als Ersatzteil/ defekt",
+    value: "7000",
+  }
 ];

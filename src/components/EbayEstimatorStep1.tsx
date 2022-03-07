@@ -27,7 +27,8 @@ const EbayEstimatorStep1 = () => {
       dispatch(setOption({ field: "model", value: values.model }));
       dispatch(setOption({ field: "color", value: values.color }));
       dispatch(setOption({ field: "memory", value: values.memory }));
-      history.push("/iphone-ankauf-wert-ebay/step-2");
+      dispatch(setOption({ field: "condition", value: values.condition }));
+      history.push("/iphone-ankauf-wert-ebay/result");
     });
 
   const modelsList = phonesList.map((phone) => ({
@@ -102,7 +103,18 @@ const EbayEstimatorStep1 = () => {
             currentlySelected={values.color}
             error={errors["color"]}
           />
-          <SumbitButton caption="WEITER" onClick={handleSubmit}></SumbitButton>
+           <PhoneProperties
+            title="4. Zustand auswählen"
+            options={[
+              { title: "Gebraucht", value: "3000" },
+              { title: "Als Ersatzteil/ defekt", value: "7000" },
+            ]}
+            field="condition"
+            onClick={handleSelect}
+            currentlySelected={values.condition}
+            error={errors["condition"]}
+          />
+          <SumbitButton caption="VERKAUFPROGNOSE ERHALTEN" onClick={handleSubmit}></SumbitButton>
         </div>
       </div>
     </div>

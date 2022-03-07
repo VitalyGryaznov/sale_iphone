@@ -68,37 +68,6 @@ const EbayEstimatorInfo = (properties) => {
             {getOptionIfDefined("condition", condition)}
           </div>
         </div>
-        <div className="info_poperty">
-          <div>
-            <b className="info_title">Rücknahmen:</b>
-            {getOptionIfDefined("return_policy", returnPolicy)}
-          </div>
-        </div>
-        <div className="info_poperty">
-          <div>
-            <b className="info_title">Versand:</b>
-            {getOptionIfDefined("shipping_cost", shippingCost)}
-          </div>
-        </div>
-
-        {properties.values.no_feedback_yet === "false" ? (
-          <div>
-            <div className="info_poperty">
-              <div>
-                <b className="info_title">Bewertungen:</b>
-                {properties.values.number_of_reviews}
-              </div>
-            </div>
-            <div className="info_poperty">
-              <div>
-                <b className="info_title">Positive Bewertungen:</b>
-                {properties.values.selers_feedback}%
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div></div>
-        )}
       </div>
     </div>
   );
