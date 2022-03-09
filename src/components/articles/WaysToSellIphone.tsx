@@ -3,6 +3,18 @@ import "./Article.scss";
 import { Helmet } from "react-helmet";
 
 function WaysToSellIphone() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Die besten Optionen ein gebrauchtes iPhone zu verkaufen im Jahr 2022",
+    "image": "https://www.mein-iphone-verkaufen.de/assets/iphone__12.jpeg",
+    "datePublished": "2022-02-20",
+    "dateModified": "2022-03-09",
+    "author": {
+      "@type": "Organization",
+      "name": "Mein iPhone Verkaufen"
+      }
+  }
   return (
     <div className="article_wrapper">
       <Helmet>
@@ -13,6 +25,9 @@ function WaysToSellIphone() {
           name="description"
           content="Wir haben die besten Möglichkeiten zusammengestellt wie Sie Bargeld für ihr iPhone bekommen können und beschreiben sie hier mit ihren Vor- und Nachteilen. Wir beginnen mit den einfachsten, aber weniger profitablen Optionen und gehen dann zu den zeitaufwändigeren, aber profitableren über."
         />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <div className="article_container">
         <h1 className="article_header">
@@ -53,13 +68,16 @@ function WaysToSellIphone() {
         <div className="article_content">
           Hier sind zum Beispiel die aktuellen geschätzten Inzahlungnahmewerte
           für ausgewählte Modelle, die sich alle in "gutem" Zustand befinden:
-          iPhone 11 - Bis zu 465€ iPhone 11 - Bis zu 330€ iPhone 8 Plus - Bis zu
-          165€
+          <p> iPhone 11 - Bis zu 465€ </p>
+          <p> iPhone 11 - Bis zu 330€ </p>
+          <p> iPhone 8 Plus - Bis zu 165€</p> 
         </div>
         <div className="article_content">
           Wenn Sie wissen wollen, wie hoch der Inzahlungnahmepreis Ihres iPhones
           ist, können Sie das ganz einfach herausfinden. Wählen Sie einfach ein
-          beliebiges iPhone-Modell auf https://www.apple.com/de/iphone/. Klicken
+          beliebiges iPhone-Modell auf 
+          <a href="https://www.apple.com/de/iphone/" rel="nofollow"> offizielle Apple-Website</a>. 
+          Klicken
           Sie auf "Kaufen". Wählen Sie Speichergröße und Farbe. Antworten Sie
           auf die Frage "Hast du ein iPhone zum Eintauschen?” mit "Ja". Jetzt
           können Sie die Speicherkapazität und den Zustand Ihres iPhones

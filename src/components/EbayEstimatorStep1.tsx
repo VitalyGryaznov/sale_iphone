@@ -61,9 +61,11 @@ const EbayEstimatorStep1 = () => {
   return (
     <div className="main-container">
       <Helmet>
-                <meta charSet="utf-8" />
-                <title>My Ipho</title>
-                <meta  />
+        <title>iPhone Ankauf Wert auf Ebay</title>
+        <meta
+          name="description"
+          content="Um herauszufinden, welcher Preis für Ihr Gerät bei eBay angemessen ist, können Sie unseren Ankauf Wert auf eBay Rechner verwenden"
+        />
       </Helmet>
       <div className="ebay-estimator">
         <div>

@@ -4,7 +4,6 @@ import phonesList from "../constants/phonesList";
 import returnPolicy from "../constants/returnPolicy";
 import shippingCost from "../constants/shippingCost";
 import condition from "../constants/condition";
-import { Helmet } from "react-helmet";
 
 const EbayEstimatorInfo = (properties) => {
   const imageUrl = properties.values.model
@@ -35,13 +34,6 @@ const EbayEstimatorInfo = (properties) => {
 
   return (
     <div className="info_container">
-      <Helmet>
-        <title>iPhone Ankauf Wert auf Ebay</title>
-        <meta
-          name="description"
-          content="Um herauszufinden, welcher Preis für Ihr Gerät bei eBay angemessen ist, können Sie unseren Ankauf Wert auf eBay Rechner verwenden"
-        />
-      </Helmet>
       <img className="info_image" src={imageUrl} alt="iphone"></img>
       <div>
         <div className="info_poperty">
